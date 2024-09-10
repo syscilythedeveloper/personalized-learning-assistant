@@ -1,0 +1,101 @@
+export const quiz = {
+  totalQuestions: 12,
+  questions: [
+    {
+      id: 1,
+      question: "What is 7 x 6?",
+      answers: ["42", "36", "48", "54"],
+      correctAnswer: "42",
+      standard: "Operations and Algebraic Thinking",
+    },
+    {
+      id: 2,
+      question: "Which of the following is a true statement: 45 ÷ 5 = ?",
+      answers: ["8", "7", "9", "10"],
+      correctAnswer: "9",
+      standard: "Operations and Algebraic Thinking",
+    },
+    {
+      id: 3,
+      question: "What is the value of the digit 3 in the number 345?",
+      answers: ["300", "30", "3", "0.3"],
+      correctAnswer: "300",
+      standard: "Number and Operations in Base 10",
+    },
+    {
+      id: 4,
+      question: "Which of the following numbers is greater: 784 or 748?",
+      answers: ["784", "748", "Both are equal", "Cannot be compared"],
+      correctAnswer: "784",
+      standard: "Number and Operations in Base 10",
+    },
+    {
+      id: 5,
+      question: "What is 1/2 + 1/4?",
+      answers: ["1/3", "1/2", "3/4", "2/4"],
+      correctAnswer: "3/4",
+      standard: "Number and Operations in Fractions",
+    },
+    {
+      id: 6,
+      question: "Which fraction is equivalent to 2/4?",
+      answers: ["1/2", "3/4", "1/3", "2/3"],
+      correctAnswer: "1/2",
+      standard: "Number and Operations in Fractions",
+    },
+    {
+      id: 7,
+      question: "A pencil is 15 centimeters long. How many millimeters is it?",
+      answers: [
+        "150 millimeters",
+        "15 millimeters",
+        "1.5 millimeters",
+        "1500 millimeters",
+      ],
+      correctAnswer: "150 millimeters",
+      standard: "Measurement and Data",
+    },
+    {
+      id: 8,
+      question:
+        "Which unit of measurement would be best to measure the weight of an apple?",
+      answers: ["Grams", "Liters", "Meters", "Centimeters"],
+      correctAnswer: "Grams",
+      standard: "Measurement and Data",
+    },
+    {
+      id: 9,
+      question: "How many sides does a pentagon have?",
+      answers: ["4", "5", "6", "7"],
+      correctAnswer: "5",
+      standard: "Geometry",
+    },
+    {
+      id: 10,
+      question: "Which shape has four equal sides and four right angles?",
+      answers: ["Rectangle", "Triangle", "Square", "Circle"],
+      correctAnswer: "Square",
+      standard: "Geometry",
+    },
+    {
+      id: 11,
+      question:
+        "Find the area of a rectangle with a length of 5 units and a width of 3 units.",
+      answers: [
+        "8 square units",
+        "15 square units",
+        "5 square units",
+        "3 square units",
+      ],
+      correctAnswer: "15 square units",
+      standard: "Geometry",
+    },
+    {
+      id: 12,
+      question: "Which of these angles is an acute angle?",
+      answers: ["90 degrees", "120 degrees", "45 degrees", "180 degrees"],
+      correctAnswer: "45 degrees",
+      standard: "Geometry",
+    },
+  ],
+};
