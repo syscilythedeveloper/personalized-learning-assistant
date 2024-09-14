@@ -1,5 +1,6 @@
 "use client"
 import {quiz} from "../data.js"
+import Navbar from "../components/Navbar.jsx"
 import React, {useState} from 'react'
 
 
@@ -54,6 +55,8 @@ const page = () => {
     }
   
     return (
+        <>
+        <Navbar />
     <div className="container"> 
         <h1> Quiz Page</h1>
         <div>
@@ -74,10 +77,10 @@ const page = () => {
                         </li>
                     ))}
                     {checked ? 
-                    <button onClick={nextQuestion}className="btn">
+                    <button onClick={nextQuestion}className="quiz-button">
                         {activeQuestion === question.length -1? "Finish": "Next"}
                         </button>: 
-                        <button onClick={nextQuestion} disabled className="btn-disabled">
+                        <button onClick={nextQuestion} disabled className="quiz-button btn-disabled">
                             {" "}
                             {activeQuestion === question.length -1? "Finish": "Next"}
                             
@@ -96,6 +99,7 @@ const page = () => {
                 
         </div>
     </div>
+    </>
   )
 }
 
