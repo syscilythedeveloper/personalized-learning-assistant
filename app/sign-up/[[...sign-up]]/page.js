@@ -9,42 +9,15 @@ import {
   Typography,
   Link,
 } from "@mui/material";
+import Navbar from "../../components/Navbar";
 
 export default function SignUpPage() {
   return (
-    <Container maxWidth="100vw">
-      <AppBar
-        position="static"
-        sx={{ backgroundColor: "#3f51b5" }}
-      >
-        <Toolbar>
-          <Typography
-            variant="h6"
-            sx={{
-              flexGrow: 1,
-            }}
-          >
-            BrAIniac
-          </Typography>
-          <Button color="inherit">
-            <Link
-              href="/sign-in"
-              passHref
-            >
-              Login
-            </Link>
-          </Button>
-          <Button color="inherit">
-            <Link
-              href="/sign-up"
-              passHref
-            >
-              Signup
-            </Link>
-          </Button>
-        </Toolbar>
-      </AppBar>
+    <Container>
+      <Navbar />
+
       <Box
+        sx={{ mt: 4 }}
         display="flex"
         flexDirection="column"
         alignItems="center"
