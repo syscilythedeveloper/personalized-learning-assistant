@@ -1,6 +1,7 @@
 "use client"
 import {quiz} from "../data.js"
 import Navbar from "../components/Navbar.jsx"
+import LoadingSpinner from '../components/LoadingSpinner'; 
 import React, {useState} from 'react'
 
 
@@ -17,6 +18,10 @@ const page = () => {
         wrongAnswers: 0,
     })
     const [incorrectAnswers, setIncorrectAnswers] = useState([])
+    const [aiRecommendation, setAIRecommendation] = useState("");
+    const [loading, setLoading] = useState(false);
+
+
 
     const {questions} = quiz;
 
@@ -52,7 +57,9 @@ const page = () => {
             correctAnswer: q.correctAnswer,
             isCorrect: q.userAnswer === q.correctAnswer
         }));
-
+    
+        setLoading(true); // Start loading
+    
         try {
             const response = await fetch('/api/ai-recommendations', {
                 method: 'POST',
@@ -66,22 +73,24 @@ const page = () => {
                     wrongAnswers: result.wrongAnswers
                 }),
             });
-
+    
             if (!response.ok) {
-                console.log(console.log("OpenAI API Key:", process.env.OPENAI_API_KEY))
+                console.log("OpenAI API Key:", process.env.OPENAI_API_KEY);
                 throw new Error('Network response was not ok');
             }
-
+    
             const aiRecommendation = await response.json();
-            console.log("AI suggestion is: ", aiRecommendation.suggestion)
-            console.log("Questions for AI: ", questionsForAi)
-            return aiRecommendation.suggestion || "No suggestion available";
+            console.log("AI suggestion is: ", aiRecommendation.suggestion);
+            setAIRecommendation(aiRecommendation.suggestion || "No suggestion available");
         } catch (error) {
             console.error('Error:', error);
-            return "Error getting AI recommendation";
+            setAIRecommendation("Error getting AI recommendation");
+        } finally {
+            setLoading(false); // End loading
         }
-    }
-
+    };
+    
+    
     const nextQuestion = () => {
         setSelectedAnswerIndex(null)
         setResult((prev) =>
@@ -135,11 +144,14 @@ const page = () => {
                     ) : (
                         <div className="quiz-container">
                             <h3>Results</h3>
-                            <h3> Overall {(result.score / questions.length) * 100}%</h3>
+                            <h3> Overall {((result.score / questions.length) * 100).toFixed(2)}%</h3>
                             <p>Total Questions: <span> {questions.length}</span></p>
                             <p>Results: <span> {result.score}</span></p>
                             <p>Correct Answers: <span> {result.correctAnswers}</span></p>
                             <p>Wrong Answers: <span> {result.wrongAnswers}</span></p>
+                            <p>Study Recommendation: 
+                                {loading ? <LoadingSpinner /> :  <span> {aiRecommendation}</span>}
+                            </p>
                             <button className="quiz-button" onClick={() => window.location.reload()}> Restart </button>
                         </div>)}
                 </div>
