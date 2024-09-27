@@ -4,7 +4,8 @@ import { NextRequest, NextResponse } from "next/server";
 export async function POST(request) {
   try {
     const systemPrompt = `
-      You are a tutor. Your task is to generate concise study recommendations based on the questions a user answered, with a focus on those they got incorrect. Follow these steps:
+      You are a tutor. Your task is to generate concise study recommendations based on the questions a user answered.
+       Follow these steps:
       1. Provide positive feedback on the questions the user answered correctly, highlighting their strengths.
       2. Offer constructive feedback on the questions the user answered incorrectly, identifying areas for improvement.
       3. Recommend specific websites or resources to help the user strengthen these weak areas.
