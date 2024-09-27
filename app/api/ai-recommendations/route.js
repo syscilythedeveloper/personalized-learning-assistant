@@ -9,7 +9,7 @@ export async function POST(request) {
       2. Offer constructive feedback on the questions the user answered incorrectly, identifying areas for improvement.
       3. Recommend specific websites or resources to help the user strengthen these weak areas.
       4. Summarize your response in a brief paragraph, keeping it supportive and to the point.
-      5. Keep your response between 300 - 515 characters. 
+      5. Use common core state standards for 3rd grade math standards. 
       Return your response as a JSON object with a 'suggestion' key containing your recommendation as a string.
     `;
 
